@@ -1,11 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const routes = require('./routes');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// Usa as rotas criadas
+app.use('/api', routes);
 
 // Rota de teste
 app.get('/health', (req, res) => {
